@@ -11,4 +11,4 @@
   when: (ansible_distribution == "RedHat")
 
 - name: Download verification repository
-  fetch: src={{ verification_repofile }} dest={{ sources_dir }}
+  get_url: url={{ verification_repofile }} dest={{ sources_dir }}
