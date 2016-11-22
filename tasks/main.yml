@@ -9,3 +9,6 @@
 - name: Download and install release package (RedHat)
   yum: name={{ release_url }} state=present
   when: (ansible_distribution == "RedHat")
+
+- name: Download verification repository
+  fetch: src={{ verification_repofile }} dest={{ sources_dir }}
