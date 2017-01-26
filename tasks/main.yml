@@ -13,3 +13,6 @@
 - name: Download verification repository
   get_url: url={{ verification_repofile }} dest={{ sources_dir }}
   when: verification_repofile is defined
+
+- name: Set up IGTF repository
+  include: igtf.yml

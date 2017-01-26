@@ -1,0 +1,21 @@
+- name: Add IGTF repository for APT
+  apt_repository:
+    repo: deb http://repository.egi.eu/sw/production/cas/1/current egi-igtf core
+    state: present
+    filename: egi-igtf
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Add IGTF repository for YUM
+  yum_repository:
+    name: EGI-trustanchors
+    description: EGI-trustanchors repo
+    baseurl: http://repository.egi.eu/sw/production/cas/1/current/
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Scientific'
+
+- name: Install CAs
+  package:
+    name: ca-policy-egi-core
+    state: latest
