@@ -12,7 +12,7 @@
     baseurl: http://repository.egi.eu/sw/production/cas/1/current/
     enabled: yes
     gpgcheck: yes
-    gpgkey: gpgkey=http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
+    gpgkey: http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Scientific'
 
 - name: Install CAs
