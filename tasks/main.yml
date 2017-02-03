@@ -12,7 +12,8 @@
 
 - name: Download verification repository files
   get_url: url={{ item }} dest={{ sources_dir }}
-  with_items: {{ verification_repofile }}
+  with_items: 
+    - "{{ verification_repofile }}"
   when: verification_repofile is defined
 
 - name: Set up IGTF repository
