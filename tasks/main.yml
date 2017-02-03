@@ -10,8 +10,9 @@
   yum: name={{ release_url }} state=present
   when: (ansible_distribution == "RedHat") or (ansible_distribution == "CentOS")
 
-- name: Download verification repository
-  get_url: url={{ verification_repofile }} dest={{ sources_dir }}
+- name: Download verification repository files
+  get_url: url={{ item }} dest={{ sources_dir }}
+  with_items: {{ verification_repofile }}
   when: verification_repofile is defined
 
 - name: Set up IGTF repository
