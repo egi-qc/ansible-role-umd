@@ -1,0 +1,28 @@
+---
+
+- name: Download and install release package (RedHat)
+  yum: name={{ release_url }} state=present
+
+- name: Add UMD base candidate repository
+  yum_repository:
+    name: "UMD-4-candidate-base"
+    description: "UMD-4 candidate - base"
+    file: "UMD-4-candidate"
+    baseurl: "http://repository.egi.eu/sw/production/umd/candidate/4/{{ nick }}/x86_64/base" 
+    protect: yes
+    enabled: yes
+    priority: 1
+    gpgcheck: no
+  when: enable_candidate_repo
+
+- name: Add UMD updates candidate repository
+  yum_repository:
+    name: "UMD-4-candidate-updates"
+    description: "UMD-4 candidate - updates"
+    file: "UMD-4-candidate"
+    baseurl: "http://repository.egi.eu/sw/production/umd/candidate/4/{{ nick }}/x86_64/updates" 
+    protect: yes
+    enabled: yes
+    priority: 1
+    gpgcheck: no
+  when: enable_candidate_repo

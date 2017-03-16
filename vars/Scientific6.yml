@@ -1,3 +1,4 @@
 ---
 release_url: http://repository.egi.eu/sw/production/umd/4/sl6/x86_64/updates/umd-release-4.0.0-1.el6.noarch.rpm
 sources_dir: /etc/yum.repos.d/
+nick: sl6
