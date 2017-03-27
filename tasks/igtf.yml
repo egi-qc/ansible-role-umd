@@ -1,6 +1,6 @@
 - name: Add IGTF repository for APT
   apt_repository:
-    repo: deb http://repository.egi.eu/sw/production/cas/1/current egi-igtf core
+    repo: deb http://repository.egi.eu/sw/production/cas/{{ ca_version }}/current egi-igtf core
     state: present
     filename: egi-igtf
   when: ansible_distribution == 'Ubuntu'
@@ -9,7 +9,7 @@
   yum_repository:
     name: EGI-trustanchors
     description: EGI-trustanchors repo
-    baseurl: http://repository.egi.eu/sw/production/cas/1/current/
+    baseurl: http://repository.egi.eu/sw/production/cas/{{ ca_version }}/current/
     enabled: yes
     gpgcheck: yes
     gpgkey: http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
