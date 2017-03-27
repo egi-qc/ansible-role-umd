@@ -1,5 +1,6 @@
 ---
 enable_candidate_repo: false
 ca_version: 1
+ca_branch: production
 ca_verification: false
 crl_deploy: false
