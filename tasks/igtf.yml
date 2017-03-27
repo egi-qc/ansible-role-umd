@@ -19,3 +19,9 @@
   package:
     name: ca-policy-egi-core
     state: latest
+
+- name: Install WLCG CA package
+  package:
+    name: ca-policy-lcg
+    state: latest
+  when: ca_verfication
