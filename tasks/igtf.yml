@@ -24,4 +24,10 @@
   package:
     name: ca-policy-lcg
     state: latest
-  when: ca_verfication
+  when: ca_verification
+
+- name: Install CRL package
+  package:
+    name: fetch-crl
+    state: latest
+  when: crl_deploy

@@ -1,3 +1,4 @@
 ---
 enable_candidate_repo: false
 ca_verification: false
+crl_deploy: false
