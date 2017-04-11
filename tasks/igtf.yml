@@ -3,11 +3,16 @@
     ca_server: admin-repo.egi.eu
   when: ca_verification
 
+- apt_key:
+    url: "https://dist.eugridpma.info/distribution/igtf/current/GPG-KEY-EUGridPMA-RPM-3"
+    state: present
+
 - name: Add IGTF repository for APT
   apt_repository:
     repo: deb http://{{ ca_server }}/sw/{{ ca_branch }}/cas/{{ ca_version }}/current egi-igtf core
     state: present
     filename: egi-igtf
+    update_cache: yes
   when: ansible_distribution == 'Ubuntu'
 
 - name: Add IGTF repository for YUM
