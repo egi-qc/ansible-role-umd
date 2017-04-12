@@ -1,5 +1,10 @@
 ---
 
+- apt_key:
+    url: "http://repository.egi.eu/sw/production/umd/UMD-DEB-PGP-KEY"
+    state: present
+  when: verification_repofile is defined
+
 - name: Download and install release package (Debian)
   apt: deb={{ release_url }}
   when: (ansible_distribution == "Debian")
