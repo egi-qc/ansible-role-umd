@@ -6,5 +6,7 @@
   when: verification_repofile is defined
 
 - name: Download and install release package (Debian)
-  apt: deb={{ release_url }}
+  apt: 
+    deb: "{{ release_url }}"
+    update_cache: yes
   when: (ansible_distribution == "Debian")
