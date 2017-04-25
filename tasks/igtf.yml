@@ -6,6 +6,7 @@
 - apt_key:
     url: "https://dist.eugridpma.info/distribution/igtf/current/GPG-KEY-EUGridPMA-RPM-3"
     state: present
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Add IGTF repository for APT
   apt_repository:
