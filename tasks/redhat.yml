@@ -30,3 +30,7 @@
 - name: Enable UMD testing repository
   command: yum-config-manager --enable UMD-*-testing
   when: enable_testing_repo
+
+- name: Enable UMD untested repository
+  command: yum-config-manager --enable UMD-*-untested
+  when: enable_untested_repo
