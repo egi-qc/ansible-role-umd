@@ -10,7 +10,7 @@
 
 - name: Deploy RedHat-specific
   include: redhat.yml
-  when: (ansible_distribution == "RedHat") or (ansible_distribution == "CentOS")
+  when: (ansible_distribution == "RedHat") or (ansible_distribution == "CentOS") or (ansible_distribution == "Scientific")
 
 - name: Download verification repository files
   get_url: url={{ item }} dest={{ sources_dir }}
