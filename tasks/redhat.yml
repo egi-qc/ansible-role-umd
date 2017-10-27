@@ -1,7 +1,7 @@
 ---
 
 - name: Download and install release package (RedHat)
-  yum: name={{ release_url }} state=present
+  yum: name={{ release_url[release] }} state=present
 
 - name: Add UMD base candidate repository
   yum_repository:
