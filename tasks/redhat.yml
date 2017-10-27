@@ -5,10 +5,10 @@
 
 - name: Add UMD base candidate repository
   yum_repository:
-    name: "UMD-4-candidate-base"
-    description: "UMD-4 candidate - base"
-    file: "UMD-4-candidate"
-    baseurl: "http://repository.egi.eu/sw/production/umd/candidate/4/{{ nick }}/x86_64/base" 
+    name: "UMD-{{ release }}-candidate-base"
+    description: "UMD-{{ release }} candidate - base"
+    file: "UMD-{{ release }}-candidate"
+    baseurl: "http://repository.egi.eu/sw/production/umd/candidate/{{ release }}/{{ nick }}/x86_64/base" 
     protect: yes
     enabled: yes
     priority: 1
@@ -17,10 +17,10 @@
 
 - name: Add UMD updates candidate repository
   yum_repository:
-    name: "UMD-4-candidate-updates"
-    description: "UMD-4 candidate - updates"
-    file: "UMD-4-candidate"
-    baseurl: "http://repository.egi.eu/sw/production/umd/candidate/4/{{ nick }}/x86_64/updates" 
+    name: "UMD-{{ release }}-candidate-updates"
+    description: "UMD-{{ release }} candidate - updates"
+    file: "UMD-{{ release }}-candidate"
+    baseurl: "http://repository.egi.eu/sw/production/umd/candidate/{{ release }}/{{ nick }}/x86_64/updates" 
     protect: yes
     enabled: yes
     priority: 1
