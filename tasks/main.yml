@@ -1,4 +1,8 @@
 ---
+- fail:
+    msg: "No UMD major release defined. Please use 'release' variable."
+  when: release is not defined
+
 - include_vars: ../defaults/main.yml
 
 - name: OS specific variables

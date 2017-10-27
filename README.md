@@ -17,14 +17,8 @@ Role Variables
 
 Brief description of the variables used in the role:
 
-    # RPM release package
-    release_url: http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/base/umd-release-4.0.0-1.el7.noarch.rpm
-
-    # Path to repository files (defaults to '/etc/yum.repos.d')
-    sources_dir: /etc/yum.repos.d/
-
-    # Operating system's nickname ('sl6', 'centos7' allowed)
-    nick: centos7
+    # UMD release version (no default)
+    release: 4
 
     # Enables the candidate repository, commonly used in the release candidate
     # verification (defaults to 'false')
