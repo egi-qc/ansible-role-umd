@@ -5,9 +5,6 @@
 
 - include_vars: ../defaults/main.yml
 
-- name: OS specific variables
-  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_major_version }}.yml"
-
 - name: Deploy Debian-specific
   include: debian.yml
   when: (ansible_distribution == "Debian") and (release == "3")

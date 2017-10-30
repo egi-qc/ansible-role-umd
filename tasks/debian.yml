@@ -1,5 +1,8 @@
 ---
 
+- name: OS specific variables
+  include_vars: "{{ ansible_distribution }}{{ ansible_distribution_major_version }}.yml"
+
 - apt_key:
     url: "http://repository.egi.eu/sw/production/umd/UMD-DEB-PGP-KEY"
     state: present
