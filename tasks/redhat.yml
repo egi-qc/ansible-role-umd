@@ -30,6 +30,12 @@
     gpgcheck: no
   when: enable_candidate_repo
 
+- name: Install yum-utils
+  package:
+    name: yum-utils
+    state: latest
+  when: enable_testing_repo or enable_untested_repo
+
 - name: Enable UMD testing repository
   command: yum-config-manager --enable UMD-*-testing
   when: enable_testing_repo
