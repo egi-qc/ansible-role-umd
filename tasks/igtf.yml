@@ -1,9 +1,12 @@
-- set_fact:
+---
+- name: Set necessary facts
+  set_fact:
     ca_branch: "unverified"
     ca_server: admin-repo.egi.eu
   when: ca_verification
 
-- apt_key:
+- name: Add apt key
+  apt_key:
     url: "https://dist.eugridpma.info/distribution/igtf/current/GPG-KEY-EUGridPMA-RPM-3"
     state: present
   when: ansible_distribution == 'Ubuntu'
@@ -13,7 +16,7 @@
     repo: deb http://{{ ca_server }}/sw/{{ ca_branch }}/cas/{{ ca_version }}/current egi-igtf core
     state: present
     filename: egi-igtf
-    update_cache: yes
+    update_cache: 'yes'
   when: ansible_distribution == 'Ubuntu'
 
 - name: Add IGTF repository for YUM
@@ -21,24 +24,24 @@
     name: EGI-trustanchors
     description: EGI-trustanchors repo
     baseurl: http://{{ ca_server }}/sw/{{ ca_branch }}/cas/{{ ca_version }}/current/
-    enabled: yes
-    gpgcheck: yes
+    enabled: 'yes'
+    gpgcheck: 'yes'
     gpgkey: http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Scientific'
 
 - name: Install CAs
   package:
     name: ca-policy-egi-core
-    state: latest
+    state: present
 
 - name: Install WLCG CA package
   package:
     name: ca-policy-lcg
-    state: latest
+    state: present
   when: ca_verification
 
 - name: Install CRL package
   package:
     name: fetch-crl
-    state: latest
+    state: present
   when: crl_deploy

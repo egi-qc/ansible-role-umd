@@ -1,0 +1,5 @@
+# Ignore temp python files
+__pycache__
+*.pyc
+# Ignore intermediary Molecule states
+.molecule
