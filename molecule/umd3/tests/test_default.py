@@ -12,7 +12,3 @@ def test_hosts_file(host):
     assert f.exists
     assert f.user == 'root'
     assert f.group == 'root'
-
-# Test that UMD release is there and that it has the right version
-
-# Test that repositories are properly configured
