@@ -9,8 +9,8 @@ repository file.
 Requirements
 ------------
 
-This role requires Ansible 2.0 or higher. The only dependency is EPEL, included
-in the metadata file.
+This role requires Ansible 2.0 or higher. The only dependency is EPEL,
+included in the metadata file.
 
 Role Variables
 --------------
