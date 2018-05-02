@@ -16,5 +16,7 @@ scenario:
   name: umd4
 verifier:
   name: testinfra
+  options:
+    nagios: true
   lint:
     name: flake8

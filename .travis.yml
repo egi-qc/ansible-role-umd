@@ -13,7 +13,6 @@ addons:
       - ruby
       - ruby-dev
       - rubygems
-
 install:
   # Install ansible and testing framework
   - pip install molecule docker
