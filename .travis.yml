@@ -6,9 +6,10 @@ sudo: true
 services:
   - docker
 env:
-  - UMD_VERSION=default
-  - UMD_VERSION=3
-  - UMD_VERSION=4
+  matrix:
+    - UMD_VERSION=default
+    - UMD_VERSION=3
+    - UMD_VERSION=4
   global:
     - TEST_ROLE_PATH=$PWD/
 # Install all the things
