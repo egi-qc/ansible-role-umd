@@ -5,6 +5,10 @@ python: "2.7"
 sudo: true
 services:
   - docker
+env:
+  global:
+    - UMD_VERSION=3
+    - UMD_VERSION=4
 # Install all the things
 addons:
   apt:
@@ -17,10 +21,11 @@ install:
   # Install ansible and testing framework
   - pip install molecule docker
   - gem install inspec
-before_script: 
+before_script:
   - ansible-galaxy install -r requirements.yml
-  - inspec exec https://github.com/EGI-Foundation/ansible-fashion-police
+  - inspec supermarket exec brucellino/ansible-fashion-police
 script:
-  - molecule test
+  - molecule test -s $UMD_VERSION
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  
