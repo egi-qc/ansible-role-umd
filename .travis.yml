@@ -1,32 +1,27 @@
 ---
 language: python
 python: "2.7"
-
-# Use the new container infrastructure
-sudo: false
-
-# Install ansible
+# Use the docker-enabled hosts
+sudo: true
+services:
+  - docker
+# Install all the things
 addons:
   apt:
     packages:
       - python-pip
+      - ruby
+      - ruby-dev
+      - rubygems
 
 install:
-  # Install ansible
-  - pip install ansible
-
-  # Check ansible version
-  - ansible --version
-
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' > ansible.cfg
-
-before_script:
+  # Install ansible and testing framework
+  - pip install molecule docker
+  - gem install inspec
+before_script: 
   - ansible-galaxy install -r requirements.yml
-
+  - inspec exec https://github.com/EGI-Foundation/ansible-fashion-police
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-
+  - molecule test
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
