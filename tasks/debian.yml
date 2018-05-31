@@ -11,6 +11,5 @@
 
 - name: Download and install release package (Debian)
   apt:
-    deb: "{{ release_url }}"
+    deb: "{{ release_url[release] }}/"
     update_cache: 'yes'
-  when: ansible_distribution == "Debian"
