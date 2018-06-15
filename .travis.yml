@@ -21,6 +21,7 @@ install:
 - pip install molecule docker
 - gem install inspec
 before_script:
+- ruby --versio:
 - inspec supermarket exec brucellino/ansible-fashion-police --controls=$CONTROLS
 script:
 - molecule dependency -s $UMD_VERSION
