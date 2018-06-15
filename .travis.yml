@@ -8,8 +8,6 @@ services:
 env:
   matrix:
     - UMD_VERSION=default
-    - UMD_VERSION=3
-    - UMD_VERSION=4
   global:
     - TEST_ROLE_PATH=$PWD/
 # Install all the things
@@ -28,6 +26,7 @@ before_script:
   - ansible-galaxy install -r requirements.yml
   - inspec supermarket exec brucellino/ansible-fashion-police
 script:
-  - molecule test -s $UMD_VERSION
+  - molecule converge -s $UMD_VERSION
+  - molecule verify -s $UMD_VERSION
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
