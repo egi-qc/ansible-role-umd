@@ -27,10 +27,10 @@ def test_repositories(host):
     if (host.system_info.distribution == 'debian'):
         print "it's a debian daddy"
         # debian stuff
-    
+
     if(host.system_info.distribution == 'redhat'):
         print "it's a redhat daddy"
         if(host.system_info.release >= '6'):
             print str(host.system_info.release)
-    
+
     print str(host.system_info.distribution)
