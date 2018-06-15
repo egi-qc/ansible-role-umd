@@ -20,7 +20,7 @@ addons:
 install:
 - pip install molecule docker
 - gem update --system
-- gem install inspec
+- gem install httparty awesome_print inspec
 before_script:
 - inspec supermarket exec brucellino/ansible-fashion-police --controls=$CONTROLS
 script:
