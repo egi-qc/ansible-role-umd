@@ -1,5 +1,0 @@
----
-- name: Converge
-  hosts: all
-  roles:
-    - { role: ansible-umd, release: 3, crl_deploy: true }

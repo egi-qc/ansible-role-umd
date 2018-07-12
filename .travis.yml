@@ -11,7 +11,7 @@ env:
     - TEST_ROLE_PATH=$PWD/
     - secure: J7TGwIboV4SpPDGvVrTOdsraFItt26G4p4IKgFzPu3TCxkh3hcHWm6roD+yLP7z24C6TfQq69+kDn+Eol9oUXSPVenmgHBPb/v/leSjSuGH9itAsXnE8Q9L6bl8TltrJgHg6aLBaT510nf0ZL+MYjL5ZVFr+Ve1URTzz55Oe8664d4xnb0bUIE4DPO3X8okIi62fU9GMDPYqHmmp28QSOZ24zpNKvoENVvDE9s+SVTSMHlWmVvTdJfs2HmJJACnxcuDJK0Oji0fzwS31QoxNsACJz0khB7dVRMwkPFYjEWUr+ikdhkv8KR7hAC207dr8rCndiNGrLMGeQ9eHfV+depFOBPCtQpNEIr/TBGuX43kez/Vu7YCPwLV3cDCo8kdJP/hhOahP9A5XjS51N5Yck/9eahHiDLMzoqohc4tt48b+ZrJRCS2tfeLtkQA31wvPKs6ZtRGd9Eq6UWaWm0gQ1QKj5ZUd8sMvSAV5k3TeXLDemffAyxIZRgMr6hTSScmzRUwJNziidGhmwa5Oljmn3v6Wkue5eRxdhs/D92nrOMgJnnqTLyaIEL3O7ri+Fzg/fJ0QMJuVrO7tWg1hbaMYlzDQ2UyOw+DbzG/l2WmxVjMerynNUPo5KiGW8l6HxFa4T8HX0NwpsyO2JoGCe/1aLlWd0jlHh6mPRrKqTm2iO78=
     - CONTROLS=("'Travis'" "'Meta'" "'Ansible main YAML files'" "'Ansible Skeleton Directories'")
-    - GITHUB_REPO=ansible-umd
+    - GITHUB_REPO=ansible-role-umd
 addons:
   apt:
     packages:
