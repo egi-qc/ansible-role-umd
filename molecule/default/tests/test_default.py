@@ -1,5 +1,5 @@
 import os
-
+import pytest
 import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
@@ -21,16 +21,24 @@ def test_umd_version(host):
     assert umd_package.version.startswith("4")
 
 
+@pytest.mark.parametrize("repo_file,os_major_version", [
+    ("CentOS-Base.repo", "6"),
+    ("CentOS-Base.repo", "7"),
+    ("UMD-4-testing.repo", "7"),
+    ("EGI-trustanchors.repo", "6"),
+    ("EGI-trustanchors.repo", "7"),
+    ("epel.repo", "6"),
+    ("epel.repo", "7"),
+    ("UMD-4-base.repo", "6"),
+    ("UMD-4-base.repo", "7"),
+    ("UMD-4-updates.repo", "6"),
+    ("UMD-4-updates.repo", "7")
+    ]
+)
 # Test that repositories are properly configured
-def test_repositories(host):
-
-    if (host.system_info.distribution == 'debian'):
-        print "it's a debian daddy"
-        # debian stuff
-
-    if(host.system_info.distribution == 'redhat'):
-        print "it's a redhat daddy"
-        if(host.system_info.release >= '6'):
-            print str(host.system_info.release)
-
-    print str(host.system_info.distribution)
+def test_repositories_enabled(host, repo_file, os_major_version):
+    f = host.file("/etc/yum.repos.d/"+repo_file)
+    assert f.exists
+    assert f.uid == 0
+    assert f.group == 'root'
+    assert f.contains('enabled(\s)*=(\s)*1$')
