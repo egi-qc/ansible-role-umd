@@ -6,26 +6,22 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: centos7
+  - name: umd-centos7
     image: centos:7
-  - name: centos6
+  - name: umd-centos6
     image: centos:6
-    # - name: trusty
-    #   image: ubuntu:trusty
-    # - name: xenial
-    #   image: ubuntu:xenial
 provisioner:
   name: ansible
   config_options:
     defaults:
-      callback_whitelist: yaml,slack, stdout,profile_roles
+      callback_whitelist: yaml, stdout,profile_tasks
       stdout_callback: yaml
       bin_ansible_callbacks: True
-    callback_slack:
-      channel: '#random'
-      username: opsbot
-      webhook_url: https://hooks.slack.com/services/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
-      verbose: true
+    # callback_slack:''
+    #   channel: '#random'
+    #   username: opsbot
+    #   webhook_url: https://hooks.slack.com/services/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
+    #   verbose: true
   lint:
     name: ansible-lint
 scenario:

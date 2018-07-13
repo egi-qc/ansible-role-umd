@@ -1,7 +1,7 @@
 import os
 import pytest
 import testinfra.utils.ansible_runner
-
+import re
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
@@ -22,9 +22,6 @@ def test_umd_version(host):
 
 
 @pytest.mark.parametrize("repo_file,os_major_version", [
-    ("CentOS-Base.repo", "6"),
-    ("CentOS-Base.repo", "7"),
-    ("UMD-4-testing.repo", "7"),
     ("EGI-trustanchors.repo", "6"),
     ("EGI-trustanchors.repo", "7"),
     ("epel.repo", "6"),
@@ -36,9 +33,31 @@ def test_umd_version(host):
     ]
 )
 # Test that repositories are properly configured
-def test_repositories_enabled(host, repo_file, os_major_version):
+def test_repositories_present(host, repo_file, os_major_version):
     f = host.file("/etc/yum.repos.d/"+repo_file)
     assert f.exists
     assert f.uid == 0
     assert f.group == 'root'
-    assert f.contains('enabled(\s)*=(\s)*1$')
+
+@pytest.mark.parametrize("repo_file", [
+    ("EGI-trustanchors.repo"),
+    ("EGI-trustanchors.repo"),
+    ("UMD-4-base.repo"),
+    ("UMD-4-base.repo"),
+    ("UMD-4-updates.repo"),
+    ("UMD-4-updates.repo")
+    ]
+)
+def test_repositories_enabled(host,repo_file):
+    content = host.file("/etc/yum.repos.d/"+repo_file).content
+    enabled_regex = re.compile("enabled\s*=\s*1")
+    assert enabled_regex.search(content) is not None
+
+
+def test_crl_files(host):
+    cron = host.file('/etc/cron.d/fetch-crl')
+    assert cron.exists
+    assert cron.is_file
+
+
+# def test_crl_freshness(host):
