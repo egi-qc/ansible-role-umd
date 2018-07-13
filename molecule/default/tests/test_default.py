@@ -39,6 +39,7 @@ def test_repositories_present(host, repo_file, os_major_version):
     assert f.uid == 0
     assert f.group == 'root'
 
+
 @pytest.mark.parametrize("repo_file", [
     ("EGI-trustanchors.repo"),
     ("EGI-trustanchors.repo"),
@@ -48,7 +49,7 @@ def test_repositories_present(host, repo_file, os_major_version):
     ("UMD-4-updates.repo")
     ]
 )
-def test_repositories_enabled(host,repo_file):
+def test_repositories_enabled(host, repo_file):
     content = host.file("/etc/yum.repos.d/"+repo_file).content
     enabled_regex = re.compile("enabled\s*=\s*1")
     assert enabled_regex.search(content) is not None
