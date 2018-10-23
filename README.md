@@ -1,4 +1,4 @@
-# Unified Middleware Distribution (UMD) [![Build Status](https://travis-ci.org/brucellino/ansible-role-umd.svg?branch=master)](https://travis-ci.org/brucellino/ansible-role-umd)
+# Unified Middleware Distribution (UMD) [![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-umd.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-umd)
 
 The role deploys the repository files needed to access the products
 distributed by UMD, currently supported for Scientific Linux 6 and CentOS7.
