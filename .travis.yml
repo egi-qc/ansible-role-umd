@@ -36,6 +36,7 @@ after_success:
   # push to Travis
   - docker commit umd-centos7 quay.io/egi/umd:centos7
   - docker commit umd-centos6 quay.io/egi/umd:centos6
+  - echo $TRAVIS_PULL_REQUEST
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then docker login -u="egi+packerbot" -p=${QUAY_PASSWORD} quay.io ; fi'
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then docker push quay.io/egi/ui:centos6 ; fi'
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then docker push quay.io/egi/ui:centos7 ; fi'
