@@ -1,7 +1,7 @@
 import os
-
+import pytest
 import testinfra.utils.ansible_runner
-
+import re
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
@@ -21,16 +21,44 @@ def test_umd_version(host):
     assert umd_package.version.startswith("4")
 
 
+@pytest.mark.parametrize("repo_file,os_major_version", [
+    ("EGI-trustanchors.repo", "6"),
+    ("EGI-trustanchors.repo", "7"),
+    ("epel.repo", "6"),
+    ("epel.repo", "7"),
+    ("UMD-4-base.repo", "6"),
+    ("UMD-4-base.repo", "7"),
+    ("UMD-4-updates.repo", "6"),
+    ("UMD-4-updates.repo", "7")
+    ]
+)
 # Test that repositories are properly configured
-def test_repositories(host):
+def test_repositories_present(host, repo_file, os_major_version):
+    f = host.file("/etc/yum.repos.d/"+repo_file)
+    assert f.exists
+    assert f.uid == 0
+    assert f.group == 'root'
 
-    if (host.system_info.distribution == 'debian'):
-        print "it's a debian daddy"
-        # debian stuff
 
-    if(host.system_info.distribution == 'redhat'):
-        print "it's a redhat daddy"
-        if(host.system_info.release >= '6'):
-            print str(host.system_info.release)
+@pytest.mark.parametrize("repo_file", [
+    ("EGI-trustanchors.repo"),
+    ("EGI-trustanchors.repo"),
+    ("UMD-4-base.repo"),
+    ("UMD-4-base.repo"),
+    ("UMD-4-updates.repo"),
+    ("UMD-4-updates.repo")
+    ]
+)
+def test_repositories_enabled(host, repo_file):
+    content = host.file("/etc/yum.repos.d/"+repo_file).content.decode('utf8')
+    enabled_regex = re.compile("enabled\s*=\s*1")
+    assert enabled_regex.search(content) is not None
 
-    print str(host.system_info.distribution)
+
+def test_crl_files(host):
+    cron = host.file('/etc/cron.d/fetch-crl')
+    assert cron.exists
+    assert cron.is_file
+
+
+# def test_crl_freshness(host):

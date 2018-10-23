@@ -6,16 +6,17 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: centos7
+  - name: umd-centos7
     image: centos:7
-  - name: centos6
+  - name: umd-centos6
     image: centos:6
-    # - name: trusty
-    #   image: ubuntu:trusty
-    # - name: xenial
-    #   image: ubuntu:xenial
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      callback_whitelist: yaml, stdout,profile_tasks
+      stdout_callback: yaml
+      bin_ansible_callbacks: True
   lint:
     name: ansible-lint
 scenario:

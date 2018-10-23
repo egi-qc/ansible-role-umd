@@ -23,7 +23,7 @@ addons:
       - ruby-dev
       - ruby-full
 install:
-  - pip install molecule docker
+  - pip install -r requirements.txt
   - gem update --system
   - gem install httparty awesome_print inspec
 before_script:

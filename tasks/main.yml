@@ -1,5 +1,4 @@
 ---
-
 - name: OS specific variables
   include_vars: "{{ ansible_distribution }}{{ ansible_distribution_major_version }}.yml"
 
@@ -20,3 +19,5 @@
 
 - name: Set up IGTF repository
   include_tasks: igtf.yml
+
+- import_tasks: baseline.yml

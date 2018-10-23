@@ -4,12 +4,12 @@
     name: epel-release
     state: present
 
-- name: Download and install release package (RedHat)
+- name: Ensure release package is present (RedHat)
   package:
     name: "{{ release_url[release] }}"
     state: present
 
-- name: Add UMD base candidate repository
+- name: Ensure UMD base candidate repository is enabled
   block:
     - yum_repository:
         name: "UMD-{{ release }}-candidate-base"
@@ -31,7 +31,7 @@
         gpgcheck: no
   when: enable_candidate_repo
 
-- name: Install yum-utils
+- name: Ensure yum-utils is present
   package:
     name: yum-utils
     state: latest
