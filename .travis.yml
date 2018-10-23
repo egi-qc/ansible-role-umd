@@ -26,6 +26,7 @@ install:
   - gem install httparty awesome_print inspec
 before_script:
   - CONTROLS=("'Travis'" "'Meta'" "'Ansible main YAML files'" "'Ansible Skeleton Directories'") inspec supermarket exec brucellino/ansible-fashion-police --controls=${CONTROLS[*]}
+  - GITHUB_REPO=$TRAVIS_SLUG inspec exec supermarket exec brucellino/black-panther
 script:
   - molecule dependency -s $UMD_VERSION
   - molecule lint -s $UMD_VERSION
