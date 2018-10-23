@@ -1,8 +1,19 @@
-# Unified Middleware Distribution (UMD) [![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-umd.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-umd) [![Docker Repository on Quay](https://quay.io/repository/egi/umd4/status "Docker Repository on Quay")](https://quay.io/repository/egi/umd4)
+# Unified Middleware Distribution (UMD) 
+
+[![Build Status](https://travis-ci.org/EGI-Foundation/ansible-role-umd.svg?branch=master)](https://travis-ci.org/EGI-Foundation/ansible-role-umd) [![Docker Repository on Quay](https://quay.io/repository/egi/umd4/status "Docker Repository on Quay")](https://quay.io/repository/egi/umd4)
 
 The role deploys the repository files needed to access the products
-distributed by UMD, currently supported for Scientific Linux 6 and CentOS7.
-This role optionally deploys the Interoperable Global Trust Federation (IGTF) repository file.
+distributed by UMD, currently supported for Scientific Linux 6 and CEntOS7.
+This role optionally deploys the Interoperable Global Trust Federation (IGTF) repository file.  
+
+## Using
+
+If you wish to use this role, install the role from [Ansible Galaxy](https://galaxy.ansible.com/EGI-Foundation/umd):
+
+```
+ansible-galaxy install egi-foundation.umd
+```
+
 
 ## Requirements
 
