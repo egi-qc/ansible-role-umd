@@ -19,6 +19,7 @@ scenario:
 verifier:
   name: testinfra
   options:
+    n: 2
     nagios: true
   lint:
     name: flake8

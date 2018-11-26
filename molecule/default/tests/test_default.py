@@ -62,3 +62,10 @@ def test_crl_files(host):
 
 
 # def test_crl_freshness(host):
+
+def test_egi_policy(host):
+    ca_package_name = "ca-policy-egi-core"
+    ca_package_version = "1.95"
+    pkg = host.package(ca_package_name)
+    assert pkg.is_installed
+    assert pkg.version.startswith(ca_package_version)
