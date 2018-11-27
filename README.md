@@ -4,7 +4,7 @@
 
 The role deploys the repository files needed to access the products
 distributed by UMD, currently supported for Scientific Linux 6 and CEntOS7.
-This role optionally deploys the Interoperable Global Trust Federation (IGTF) repository file.  
+This role optionally deploys the Interoperable Global Trust Federation (IGTF) repository file.
 
 ## Using
 
@@ -13,7 +13,6 @@ If you wish to use this role, install the role from [Ansible Galaxy](https://gal
 ```
 ansible-galaxy install egi-foundation.umd
 ```
-
 
 ## Requirements
 
@@ -42,13 +41,14 @@ Brief description of the variables used in the role:
 
 ## Dependencies
 
-- geerlingguy.repo-epel
+A previous dependency on [`geerlingguy.repo-epel`](https://galaxy.ansible.com/geerlingguy/repo-epel) has been removed.
+EPEL is now taken care of in this role directly.
 
 ## Example Playbook
 
-This role can be used in several scenarios, depending on your environment. These are some examples of how to use this role 
+This role can be used in several scenarios, depending on your environment. These are some examples of how to use this role.
 
-### Just install UMD repository files (if current OS is supported) 
+### Just install UMD repository files (if current OS is supported)
 
 ```yaml
     - hosts: all
@@ -73,7 +73,6 @@ This role can be used in several scenarios, depending on your environment. These
 ```
 
 ## License
-
 
 Apache 2.0
 
