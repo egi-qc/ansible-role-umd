@@ -8,7 +8,7 @@
   when: (release is not defined) or (release_url[release] is not defined)
 
 - name: Include OS-specific tasks
-  include_tasks: "{{ ansible_os_family| lower}}.yml"
+  include_tasks: "{{ ansible_os_family| lower }}.yml"
 
 - name: Download verification repository files
   get_url:

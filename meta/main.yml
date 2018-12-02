@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: "Pablo Orviz"
+  company: "EGI"
   description: UMD distribution repository deployment
   license: Apache
   min_ansible_version: 2.0
@@ -12,7 +13,7 @@ galaxy_info:
     - name: Debian
       versions:
         - squeeze
-  categories:
+  galaxy_tags:
     - packaging
     - middleware
 dependencies: []
