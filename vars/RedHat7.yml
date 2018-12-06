@@ -5,3 +5,15 @@ sources_dir: /etc/yum.repos.d/
 nick: centos7
 baseline_packages:
   - ntpdate
+
+security_updates:
+  - name: python
+    patched_version: "2.7.5-76.el7"
+  - name: python-libs
+    patched_version: "2.7.5-76.el7"
+  - name: openssl-libs
+    patched_version: "1.0.2k-16.el7"
+  - name: openssl
+    patched_version: "1.0.2k-16.el7"
+  - name: glibc
+    patched_version: "2.17-260.el7"
