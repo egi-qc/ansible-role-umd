@@ -31,5 +31,5 @@ def test_security_some_other_way(host):
         name = cve['name']
         if (host.package(name).is_installed):
             assert (str(host.package(name).version + '-' +
-                        host.package(name).release) ==
+                        host.package(name).release) >=
                     patched_version)
