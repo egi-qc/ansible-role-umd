@@ -2,6 +2,7 @@
 enable_candidate_repo: false
 enable_testing_repo: false
 enable_untested_repo: false
+disable_updates_repo: false # useful in the event of a new major UMD release
 ca_version: 1
 ca_branch: production
 ca_server: repository.egi.eu
