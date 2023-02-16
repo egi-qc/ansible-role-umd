@@ -7,14 +7,6 @@ nick: almalinux9
 baseline_packages:
   - ntpsec
 
-# security_updates:
-#   - name: python
-#     patched_version: "2.7.5-86.el7"
-#   - name: python-libs
-#     patched_version: "2.7.5-86.el7"
-#   - name: openssl-libs
-#     patched_version: "1.0.2k-19.el7"
-#   - name: openssl
-#     patched_version: "1.0.2k-19.el7"
-#   - name: glibc
-#     patched_version: "2.17-292.el7"
+security_updates:
+    - name: python3
+     patched_version: "3.9.14-1.el9_1.1.x86_64"
