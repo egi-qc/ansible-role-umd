@@ -7,13 +7,13 @@ baseline_packages:
   - ntpdate
 
 security_updates:
-  - name: python
-    patched_version: "2.7.5-86.el7"
-  - name: python-libs
-    patched_version: "2.7.5-86.el7"
+  - name: python3
+    patched_version: "3.6.8-18.el7"
+  - name: python3-libs
+    patched_version: "3.6.8-18.el7"
   - name: openssl-libs
-    patched_version: "1.0.2k-19.el7"
+    patched_version: "1.0.2k-25.el7_9"
   - name: openssl
-    patched_version: "1.0.2k-19.el7"
+    patched_version: "1.0.2k-25.el7_9"
   - name: glibc
-    patched_version: "2.17-292.el7"
+    patched_version: "2.17-326.el7_9"
