@@ -47,3 +47,10 @@
 - name: Enable UMD untested repository
   command: yum-config-manager --enable UMD-*-untested
   when: enable_untested_repo
+
+- name: Remove UMD-{{ relese }}-updates when no updates branch is present in the repo (i.e. new major UMD release)
+  yum_repository:
+    name: UMD-{{ release }}-updates
+    state: absent
+  notify: yum-clean-metadata
+  when: disable_updates_repo
