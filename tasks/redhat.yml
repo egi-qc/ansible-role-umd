@@ -21,7 +21,7 @@
         enabled: yes
         priority: 1
         gpgcheck: no
-    - name: Enable UMD candidate updates
+    - name: Disable UMD candidate updates
       yum_repository:
         name: "UMD-{{ release }}-candidate-updates"
         description: "UMD-{{ release }} candidate - updates"
@@ -29,7 +29,7 @@
         baseurl: "http://repository.egi.eu/sw/production/umd/candidate/{{ release }}/{{ nick }}/x86_64/updates"
         protect: yes
         enabled: yes
-        priority: 1
+        priority: 0
         gpgcheck: no
   when: enable_candidate_repo
 
