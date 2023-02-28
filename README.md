@@ -25,6 +25,8 @@ Brief description of the variables used in the role:
 
 - `release` (int) UMD release version (no default)
   - _e.g._  `release: 4`
+- `enable_verification_repo` (bool) Enable the verification repository (defaults to `false`)
+  - _e.g._ `enable_verification_repo: false`
 - `enable_candidate_repo` (bool) Enable the candidate repository, commonly used in the release candidate (defaults to `false`)
   - _e.g._ `enable_candidate_repo: false`
 - `enable_testing_repo` (bool) : Enables the testing repository (defaults to 'false')

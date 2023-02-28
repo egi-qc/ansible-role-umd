@@ -9,6 +9,20 @@
     name: "{{ release_url[release] }}"
     state: present
 
+- name: Add UMD verification repository URL
+  block:
+    - name: Enable UMD verification base
+      yum_repository:
+        name: "UMD-{{ release }}-verification"
+        description: "UMD-{{ release }} verification"
+        file: "UMD-{{ release }}-verification"
+        baseurl: "https://nexusrepoegi.a.incd.pt/repository/umd/"
+        protect: yes
+        enabled: yes
+        priority: 1
+        gpgcheck: no
+  when: enable_verification_repo
+
 - name: Ensure UMD candidate repositories are enabled
   block:
     - name: Enable UMD candidate base
