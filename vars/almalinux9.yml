@@ -8,5 +8,5 @@ baseline_packages:
   - ntpsec
 
 security_updates:
-    - name: python3
-     patched_version: "3.9.14-1.el9_1.1.x86_64"
+  - name: python3
+    patched_version: "3.9.14-1.el9_1.1.x86_64"
