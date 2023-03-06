@@ -16,7 +16,7 @@
         name: "UMD-{{ release }}-verification"
         description: "UMD-{{ release }} verification"
         file: "UMD-{{ release }}-verification"
-        baseurl: "https://nexusrepoegi.a.incd.pt/repository/umd/"
+        baseurl: "https://nexusrepoegi.a.incd.pt/repository/umd/{{ release }}/{{ nick }}/testing/x86_64"
         protect: yes
         enabled: yes
         priority: 1
