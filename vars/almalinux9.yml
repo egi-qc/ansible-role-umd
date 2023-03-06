@@ -3,7 +3,7 @@ release_url:
   4: 
   5: 
 sources_dir: /etc/yum.repos.d/
-nick: almalinux9
+nick: al9
 baseline_packages:
   - ntpsec
 
