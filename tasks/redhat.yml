@@ -55,11 +55,11 @@
 
 # these tasks are not idempotent - they should be replaced with some "replace" tasks, in a block
 - name: Enable UMD testing repository
-  command: yum-config-manager --enable UMD-*-testing
+  command: yum-config-manager --enable UMD-*-testing-nexus
   when: enable_testing_repo
 
 - name: Enable UMD untested repository
-  command: yum-config-manager --enable UMD-*-untested
+  command: yum-config-manager --enable UMD-*-untested-nexus
   when: enable_untested_repo
 
 - name: Remove UMD-{{ relese }}-updates when no updates branch is present in the repo (i.e. new major UMD release)
