@@ -1,7 +1,7 @@
 ---
 release_url:
-  4: 
-  5: 
+  4:
+  5: https://repository.egi.eu/repository/umd/5/al9/release/x86_64/umd-nexus-release-5.0.0-3.al9.alma.noarch.rpm
 sources_dir: /etc/yum.repos.d/
 nick: al9
 baseline_packages:
