@@ -4,6 +4,11 @@
     name: epel-release
     state: present
 
+- name: Add UMD Key
+  rpm_key:
+    url: "https://repository.egi.eu/repository/umd/{{ release }}/UMD-{{ release }}-RPM-PGP-KEY"
+    state: present
+
 - name: Ensure release package is present (RedHat)
   package:
     name: "{{ release_url[release] }}"
