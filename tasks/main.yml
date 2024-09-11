@@ -21,6 +21,7 @@
   import_tasks: igtf.yml
   tags:
     - certificates
+  when: ca_verification
 
 - import_tasks: baseline.yml
 - import_tasks: updates.yml
