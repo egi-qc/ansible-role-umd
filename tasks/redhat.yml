@@ -1,4 +1,14 @@
 ---
+- name: Flush any previous presence of UMD (packages)
+  package:
+    name: umd*release
+    state: absent
+
+- name: Flush any previous presence of UMD (files)
+  ansible.builtin.file:
+    path: /etc/*UMD*.repo
+    state: absent
+
 - name: Ensure EPEL is present
   package:
     name: epel-release
