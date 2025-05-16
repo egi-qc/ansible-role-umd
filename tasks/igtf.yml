@@ -6,7 +6,7 @@
 
 - name: Add apt key
   apt_key:
-    url: "https://dist.eugridpma.info/distribution/igtf/current/GPG-KEY-EUGridPMA-RPM-3"
+    url: "https://dist.eugridpma.info/distribution/igtf/current/GPG-KEY-EUGridPMA-RPM-4"
     state: present
   when: ansible_distribution == 'Ubuntu'
 
@@ -32,7 +32,7 @@
     baseurl: "https://{{ ca_server }}/sw/{{ ca_branch }}/cas/{{ ca_version }}/current/"
     enabled: 'yes'
     gpgcheck: 'yes'
-    gpgkey: http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
+    gpgkey: http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-4
   when: (ansible_os_family | lower) == 'redhat'
 
 - name: Ensure EGI Policy Core is present
